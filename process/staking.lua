@@ -68,8 +68,14 @@ local function continue(fn)
   end
 end
 
-Handlers.add('staking.balances', 'Stakers',
-  function(msg) msg.reply({ Data = require('json').encode(Stakers) }) end)
+Handlers.add('staking.balances', Handlers.utils.hasMatchingTag("Action", 'Stakers'),
+  function(msg) 
+    if msg.reply then
+      msg.reply({ Data = require('json').encode(Stakers) })
+    else
+      Send({Target = msg.From, Data = require('json').encode(Stakers) }) 
+    end
+  end)
 -- Registering Handlers
 Handlers.add("staking.stake",
   continue(Handlers.utils.hasMatchingTag("Action", "Stake")), Handlers.stake)
