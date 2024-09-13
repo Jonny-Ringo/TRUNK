@@ -1,4 +1,4 @@
-Variant = "0.0.2"
+Variant = "0.0.3"
 Stakers = Stakers or {}
 Unstaking = Unstaking or {}
 local bint = require('.bint')(256)
@@ -42,6 +42,7 @@ Handlers.unstake = function(msg)
       release_at = stakerInfo.unstake_at
   }
   msg.reply({ Data = "Successfully unstaked " .. msg.Tags.Quantity})
+  Send({ Target = ao.id, Action = "Check-Height"})
 end
 
 -- Finalization Handler
@@ -83,6 +84,6 @@ Handlers.add("staking.unstake",
   continue(Handlers.utils.hasMatchingTag("Action", "Unstake")), Handlers.unstake)
 -- Finalization handler should be called for every message
 -- changed to continue to let messages pass-through
-Handlers.add("staking.finalize", function (msg) return "continue" end, finalizationHandler)
+Handlers.prepend("staking.finalize", function (msg) return "continue" end, finalizationHandler)
 
 
