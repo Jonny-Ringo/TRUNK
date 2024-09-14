@@ -1,7 +1,7 @@
 Variant = "0.0.4"
 Stakers = Stakers or {}
 Unstaking = Unstaking or {}
-UnstakeDelay = 670
+UnstakeDelay = UnstakeDelay or 670
 local bint = require('.bint')(256)
 
 --[[
