@@ -1,4 +1,4 @@
-Variant = "0.0.2"
+Variant = "0.0.3"
 Stakers = Stakers or {}
 Unstaking = Unstaking or {}
 local bint = require('.bint')(256)
@@ -49,7 +49,7 @@ local finalizationHandler = function(msg)
   local currentHeight = tonumber(msg['Block-Height'])
   -- Process unstaking
   for address, unstakeInfo in pairs(Unstaking) do
-      if currentHeight >= unstakeInfo.release_at then
+      if currentHeight >= unstakeInfo.release_at or unstakeInfo.release_at == nil then
           Balances[address] = utils.add(Balances[address] or "0", unstakeInfo.amount)
           Unstaking[address] = nil
       end
@@ -83,5 +83,6 @@ Handlers.add("staking.unstake",
   continue(Handlers.utils.hasMatchingTag("Action", "Unstake")), Handlers.unstake)
 -- Finalization handler should be called for every message
 -- changed to continue to let messages pass-through
-Handlers.add("staking.finalize", function (msg) return "continue" end, finalizationHandler)
+Handlers.prepend("staking.finalize", function (msg) return "continue" end, finalizationHandler)
+
 
