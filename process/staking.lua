@@ -19,8 +19,6 @@ local utils = {
   end
 }
 
-UnstakeDelay = 670
-
 -- Stake Action Handler
 Handlers.stake = function(msg)
   local quantity = bint(msg.Tags.Quantity)
