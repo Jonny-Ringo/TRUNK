@@ -1,6 +1,7 @@
-Variant = "0.0.3"
+Variant = "0.0.4"
 Stakers = Stakers or {}
 Unstaking = Unstaking or {}
+UnstakeDelay = 670
 local bint = require('.bint')(256)
 
 --[[
@@ -18,16 +19,17 @@ local utils = {
   end
 }
 
+UnstakeDelay = 670
+
 -- Stake Action Handler
 Handlers.stake = function(msg)
   local quantity = bint(msg.Tags.Quantity)
-  local delay = tonumber(msg.Tags.UnstakeDelay)
   local height = tonumber(msg['Block-Height'])
   assert(Balances[msg.From] and bint(Balances[msg.From]) >= quantity, "Insufficient balance to stake")
   Balances[msg.From] = utils.subtract(Balances[msg.From], msg.Tags.Quantity) 
   Stakers[msg.From] = Stakers[msg.From] or { amount = "0" }
   Stakers[msg.From].amount = utils.add(Stakers[msg.From].amount, msg.Tags.Quantity)  
-  Stakers[msg.From].unstake_at = height + delay
+  Stakers[msg.From].unstake_at = height + UnstakeDelay
   print("Successfully Staked " .. msg.Tags.Quantity)
   msg.reply({ Data = "Successfully Staked " .. msg.Tags.Quantity})
 end
@@ -84,5 +86,6 @@ Handlers.add("staking.unstake",
 -- Finalization handler should be called for every message
 -- changed to continue to let messages pass-through
 Handlers.prepend("staking.finalize", function (msg) return "continue" end, finalizationHandler)
+
 
 
