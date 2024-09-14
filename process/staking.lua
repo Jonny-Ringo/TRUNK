@@ -42,7 +42,6 @@ Handlers.unstake = function(msg)
       release_at = stakerInfo.unstake_at
   }
   msg.reply({ Data = "Successfully unstaked " .. msg.Tags.Quantity})
-  Send({ Target = ao.id, Action = "Check-Height"})
 end
 
 -- Finalization Handler
