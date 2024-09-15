@@ -15,7 +15,7 @@ TRUNK = "wOrb8b_V8QixWyXZub48Ki5B6OIDyf_p1ngoonsaRpQ"
 ### Stake
 
 ```lua
-Send({Target = TRUNK, Action = "[Stake quantity]", Quantity = "[Stake quantity]"})
+Send({Target = TRUNK, Action = "Stake", Quantity = "[Stake_quantity]"})
 ```
 ### See Staked Balance
 
