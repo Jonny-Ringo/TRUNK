@@ -11,7 +11,7 @@ Minted = Minted or initialMinted
 FrameID = "nOXJjj_vk0Dc1yCgdWD8kti_1iHruGzLQLNNBHVpN0Y" -- iFRAME ID with ArDrive site for PlaceHolder
 Name = Name or "TRUNK"
 VoteLength = VoteLength or 670 -- ~24hours
-Threshhold = Threshhold or 0.025 -- 2.5% of supply must vote on "yay" to pass a vote
+Threshold = Threshold or 0.025 -- 2.5% of supply must vote on "yay" to pass a vote
 Ticker = Ticker or "TRUNK"
 Logo = 'hqg-Em9DdYHYmMysyVi8LuTGF8IF_F7ZacgjYiSpj0k'
 
@@ -196,7 +196,7 @@ function (msg)
 end,
 function(msg)
   local currentHeight = tonumber(msg['Block-Height'])
-  local quorumThreshold = Threshhold * Minted
+  local quorumThreshold = Threshold * Minted
   
   -- Process voting
   for id, voteInfo in pairs(Votes) do
