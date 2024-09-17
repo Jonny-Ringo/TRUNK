@@ -69,13 +69,20 @@ end, function (m)
   Send({
     Target = m.From,
     Data = require('json').encode(
-      Utils.map(function (k) return { tx = k, yay = Votes[k].yay, nay = Votes[k].nay, deadline = Votes[k].deadline} end ,
-       Utils.keys(Votes))
-    ) 
-  }) 
+      Utils.map(function (k) 
+        return { 
+          tx = k, 
+          yay = Votes[k].yay, 
+          nay = Votes[k].nay, 
+          deadline = Votes[k].deadline,
+          command = Votes[k].command,  -- Add command field
+          prop = Votes[k].prop         -- Add prop field
+        } 
+      end, Utils.keys(Votes))
+    )
+  })
   print("Sent Votes to caller")
-end
-)
+end)
 
 -- GetInfo
 Handlers.prepend("Get-Info", function (m) return m.Action == "Get-Info" end, function (m)
