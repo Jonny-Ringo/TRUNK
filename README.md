@@ -35,12 +35,12 @@ Send({Target = TRUNK, Action = "Unstake", Quantity = "Unstake_quantity" })
 ## Vote/Propose A Vote
 
 ```
-Send({Target = TRUNK, Action = "Vote", Side = "yay", VoteID = "Insert Vote#", Command = [[Insert command here and use escape quotes]], Prop = "Insert your Porposal text here"})
+Send({Target = TRUNK, Action = "Vote", Side = "yay", VoteID = "Insert Vote#", Command = [[Insert command here]], Prop = "Insert your Proposal text here"})
 ```
 ### Propose a vote to change the FRAME
 
 ```lua
-Send({ Target = TRUNK, Action = "Vote", Side = "yay", Command = [[FrameID= "Arweave_tx_ID_here"]], Prop = "Insert your Porposal text here"})
+Send({ Target = TRUNK, Action = "Vote", Side = "yay", Command = [[FrameID= "Arweave_tx_ID_here"]], Prop = "Insert your Proposal text here"})
 ```
 
 ### Vote yay(yes)
