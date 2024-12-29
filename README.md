@@ -32,10 +32,15 @@ TRUNKStakers["your_staked_address"]
 ```lua
 Send({Target = TRUNK, Action = "Unstake", Quantity = "Unstake_quantity" })
 ```
+## Vote/Propose A Vote
+
+```
+Send({Target = TRUNK, Action = "Vote", Side = "yay", VoteID = "Insert Vote#", Command = [[Insert command here and use escape quotes]], Prop = "Insert your Porposal text here"})
+```
 ### Propose a vote to change the FRAME
 
 ```lua
-Send({ Target = TRUNK, Action = "Vote", Side = "yay", Command = [[FrameID= "Arweave_tx_ID_here"]]})
+Send({ Target = TRUNK, Action = "Vote", Side = "yay", Command = [[FrameID= "Arweave_tx_ID_here"]], Prop = "Insert your Porposal text here"})
 ```
 
 ### Vote yay(yes)
