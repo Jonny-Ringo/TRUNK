@@ -34,7 +34,7 @@ Going Forward:
 1. The permaweb site will remain up at https://trunk-on-ao.ar.io but will not receive further updates in it’s current form.
     All manual staking/unstaking commands and other features can be found in the [TRUNK repo readme](https://github.com/Jonny-Ringo/TRUNK/blob/main/README.md).
 2. The token contract will remain live at `wOrb8b_V8QixWyXZub48Ki5B6OIDyf_p1ngoonsaRpQ` on AO Legacynet(testnet)
-3. The 12 AO received from the original CRED minting of TRUNK has been used to create a pool on Botega and paired with 144 TRUNK. 
+3. The 12 AO received from the original CRED minting of TRUNK have been used to create a pool on Botega and paired with 144 TRUNK. 
 https://botega.arweave.net/#/swap?from=0syT13r0s0tgPmIed95bJnuSqaD29HQNN8D3ElLSrsc&to=wOrb8b_V8QixWyXZub48Ki5B6OIDyf_p1ngoonsaRpQ
 4. Current LP tokens have been burned. This means the current pools are permanent.
 wAR/TRUNK: https://aolink.arweave.net/#/message/61Fih7vE4CySb5R16I_JpBsBJadEVaBAM3KuPs7ZUmc
