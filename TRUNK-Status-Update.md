@@ -6,7 +6,7 @@ After careful consideration of the current challenges facing TRUNK, I want to sh
 
 ## Current Challenges
 
-TRUNK has reached a critical juncture with several significant obstacles:
+TRUNK has reached a juncture with several significant obstacles:
 
 1. **Limited Funding**: The project has no substantial funding beyond TRUNK tokens themselves. As mentioned in community discussions: TRUNK does not have a fair market value outside of AO's DEXs, so using it for direct funding is limited. The project also does not have funds to pair with it on DEXs for further pool expansion as it has not been funded by any VCs or seed round(current pool depth is supported by fees earned from past trading volume). It wasn’t intended to take that route in the beginning.
 2. **Technical Infrastructure/Migration to HyperBEAM**: The front-end requires a complete rebuild as dryruns are being phased out and this is already causing issues with using the staking features. The token needs to be migrated to Hyperbeam with many potential changes in the future.
